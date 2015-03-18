@@ -3,7 +3,6 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
-
 public class Amwg extends Graph {
 
 	int [][] matrix;

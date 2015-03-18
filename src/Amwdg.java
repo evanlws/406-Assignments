@@ -3,12 +3,6 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
-/*
- * Evan Lewis
- * Assignment 1
- * Due 2/11/15
- */
-
 public class Amwdg extends Graph {
 
 	int [][] matrix;

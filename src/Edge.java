@@ -1,10 +1,5 @@
 import java.util.Comparator;
 
-/*
- * Evan Lewis
- * Assignment 1
- * Due 2/11/15
- */
 public class Edge {
 
 	int vertex1;

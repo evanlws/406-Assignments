@@ -1,11 +1,5 @@
 import java.util.Arrays;
 
-/*
- * Evan Lewis
- * Assignment 1
- * Due 2/11/15
- */
-
 public abstract class Graph {
 
 	int numNodes;

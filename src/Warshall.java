@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Warshall {
 
 	public static int[][] transitiveClosure(Graph graph, int [][] theMatrix){

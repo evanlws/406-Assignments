@@ -1,8 +1,3 @@
-/*
- * Evan Lewis
- * Assignment 1
- * Due 2/11/15
- */
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;

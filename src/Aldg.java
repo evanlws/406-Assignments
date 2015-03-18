@@ -1,12 +1,6 @@
 import java.util.Iterator;
 import java.util.LinkedList;
 
-/*
- * Evan Lewis
- * Assignment 1
- * Due 2/11/15
- */
-
 public class Aldg extends Graph {
 
 	LinkedList<Edge>[] adjacencyList;

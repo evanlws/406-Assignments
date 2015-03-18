@@ -1,7 +1,4 @@
 /*
- * Evan Lewis
- * Assignment 1
- * Due 2/11/15
  * 
  * Each item should be placed on its own line
  * Line 1 should be one of the following Graph Types:
