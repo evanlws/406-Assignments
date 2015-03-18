@@ -1,5 +1,3 @@
-package Assign2Package;
-
 import java.util.*;
 
 public class Warshall {
