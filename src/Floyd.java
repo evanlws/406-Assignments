@@ -6,7 +6,6 @@ public class Floyd {
 		for(int n = 1; n < graph.numNodes + 1; n++){
 			for(int m = 1; m < graph.numNodes + 1; n++){
 				if((n != m) && (matrix[n][m] == 0)){
-					//something here for infinity
 				}
 			}
 		}
