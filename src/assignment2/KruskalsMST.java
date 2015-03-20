@@ -1,10 +1,10 @@
 package assignment2;
 
-import model.*;
-import assignment3.*;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Queue;
+
+import model.Edge;
 
 public class KruskalsMST {
 

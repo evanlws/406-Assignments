@@ -1,8 +1,9 @@
 package assignment2;
 
-import model.*;
-import assignment3.*;
 import java.util.Stack;
+
+import model.Graph;
+import model.Node;
 
 public class TopologicalSort {
 	

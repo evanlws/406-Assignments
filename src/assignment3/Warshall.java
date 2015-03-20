@@ -1,7 +1,6 @@
 package assignment3;
+import model.Graph;
 
-import model.*;
-import assignment2.*;
 public class Warshall {
 
 	public static int[][] transitiveClosure(Graph graph, int [][] theMatrix){

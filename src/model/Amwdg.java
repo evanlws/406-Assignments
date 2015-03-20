@@ -1,11 +1,9 @@
 package model;
 
-import assignment2.*;
-import assignment3.*;
-import java.util.Iterator;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.Set;
+
+import assignment3.Warshall;
 
 public class Amwdg extends Graph {
 
@@ -111,19 +109,14 @@ public class Amwdg extends Graph {
 			}
 			System.out.println("\n");
 		}
-
-		System.out.println("The sorted array is: ");
-		int[] sortedArray = TopologicalSort.sortedArray(this, inDegreeArray());
-		for (int i = 0; i < sortedArray.length; i++) {
-			System.out.print(sortedArray[i] + " ");
-		}
-		System.out.println();
-		System.out.println("The MST is:");
-		Set<Edge> edges = KruskalsMST.minimumSpanningTree(getPriorityQueue(), numNodes);
-		Iterator<Edge> it = edges.iterator();
-		while(it.hasNext()) {
-			Edge e = it.next();
-			System.out.println(e.vertex1 + " " + e.vertex2 + " " + e.weight);
+		
+		System.out.println("The transitive closure is: ");
+		int[][] transitiveClosure = Warshall.transitiveClosure(this, matrix);
+		for (int i = 0; i < transitiveClosure.length; i++) {
+			for (int j = 0; j < transitiveClosure.length; j++) {
+				System.out.print(transitiveClosure[i][j] + " ");
+			}
+			System.out.println();
 		}
 		
 	}

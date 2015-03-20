@@ -1,7 +1,6 @@
 package model;
+import assignment3.Warshall;
 
-import assignment2.*;
-import assignment3.*;
 public class Amdg extends Graph{
 
 	int [][] matrix;

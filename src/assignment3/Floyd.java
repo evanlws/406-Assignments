@@ -1,5 +1,5 @@
 package assignment3;
-import model.*;
+import model.Graph;
 
 public class Floyd {
 

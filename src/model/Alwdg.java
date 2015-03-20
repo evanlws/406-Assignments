@@ -1,12 +1,13 @@
 package model;
 
-import assignment2.*;
-import assignment3.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
+
+import assignment2.KruskalsMST;
+import assignment2.TopologicalSort;
 
 public class Alwdg extends Graph{
 

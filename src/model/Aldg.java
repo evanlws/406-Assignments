@@ -1,9 +1,9 @@
 package model;
 
-import assignment2.*;
-import assignment3.*;
 import java.util.Iterator;
 import java.util.LinkedList;
+
+import assignment2.TopologicalSort;
 
 public class Aldg extends Graph {
 
