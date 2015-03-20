@@ -1,6 +1,7 @@
+package model;
 public class Node {
 
-	int name;
+	public int name;
 	
 	public Node(int name) {
 		this.name = name;

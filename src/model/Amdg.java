@@ -1,3 +1,7 @@
+package model;
+
+import assignment2.*;
+import assignment3.*;
 public class Amdg extends Graph{
 
 	int [][] matrix;
@@ -12,37 +16,37 @@ public class Amdg extends Graph{
 		printTestData();
 	}
 
-	protected void putEdge(int i, int j) {
+	public void putEdge(int i, int j) {
 		matrix[i][j] = 1;
 	}
 	
-	protected void putEdge(Edge e) {
+	public void putEdge(Edge e) {
 		putEdge(e.vertex1, e.vertex2);
 	}
 
-	protected void removeEdge(int i, int j) {
+	public void removeEdge(int i, int j) {
 		matrix[i][j] = 0;
 	}
 	
-	protected void removeEdge(Edge e) {
+	public void removeEdge(Edge e) {
 		removeEdge(e.vertex1, e.vertex2);
 	}
 
-	protected boolean existsEdge(int i, int j) {
+	public boolean existsEdge(int i, int j) {
 		if(matrix[i][j] == 1) {
 			return true;
 		}
 		return false;
 	}
 
-	protected boolean areAdjacent(int i, int j) {
+	public boolean areAdjacent(int i, int j) {
 		if (existsEdge(i, j)) {
 			return true;
 		}
 		return false;
 	}
 	
-	protected Node[] adjacentVertices(int i) {
+	public Node[] adjacentVertices(int i) {
 		Node[] nodeArray =  new Node[0];
 		for (int j = 0; j < matrix.length; j++) {
 			if (areAdjacent(i, j)) {
@@ -52,7 +56,7 @@ public class Amdg extends Graph{
 		return nodeArray;
 	}
 
-	protected int inDegree(int i) {
+	public int inDegree(int i) {
 		int count = 0;
 		for (int j = 0; j < matrix.length; j++) {
 			if (matrix[j][i] == 1) {
@@ -62,7 +66,7 @@ public class Amdg extends Graph{
 		return count;
 	}
 
-	protected int outDegree(int i) {
+	public int outDegree(int i) {
 		int count = 0;
 		for (int j = 0; j < matrix.length; j++) {
 			if (matrix[i][j] == 1) {
@@ -72,7 +76,7 @@ public class Amdg extends Graph{
 		return count;
 	}
 	
-	protected int[] inDegreeArray() {
+	public int[] inDegreeArray() {
 		int [] array = new int[numNodes + 1];
 		for (int i = 0; i < numNodes + 1; i++) {
 			array[i] = inDegree(i);
@@ -80,7 +84,7 @@ public class Amdg extends Graph{
 		return array;
 	}
 	
-	protected void printTestData() {
+	public void printTestData() {
 
 		//Print statements
 		System.out.println("The Adjacency Matrix Directed Graph is: ");
@@ -88,14 +92,16 @@ public class Amdg extends Graph{
 			for (int j = 0; j < matrix.length; j++) {
 				System.out.print(matrix[i][j] + " ");
 			}
-			System.out.println("\n");
+			System.out.println();
 		}
-		System.out.println("The sorted array is: ");
-		int[] sortedArray = TopologicalSort.sortedArray(this, inDegreeArray());
-		for (int i = 0; i < sortedArray.length; i++) {
-			System.out.print(sortedArray[i] + " ");
+		System.out.println("The transitive closure is: ");
+		int[][] transitiveClosure = Warshall.transitiveClosure(this, matrix);
+		for (int i = 0; i < transitiveClosure.length; i++) {
+			for (int j = 0; j < transitiveClosure.length; j++) {
+				System.out.print(transitiveClosure[i][j] + " ");
+			}
+			System.out.println();
 		}
-		System.out.println();
 	}
 
 }

@@ -1,3 +1,5 @@
+package model;
+
 /*
  * 
  * Each item should be placed on its own line

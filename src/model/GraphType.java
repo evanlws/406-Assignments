@@ -1,3 +1,4 @@
+package model;
 public enum GraphType {
 	ALWDG("ALWDG"), AMWDG("AMWDG"), ALDG("ALDG"), AMDG("AMDG"), ALWG("ALWG"), AMWG("AMWG");
 	private String value;

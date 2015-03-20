@@ -1,3 +1,7 @@
+package model;
+
+import assignment2.*;
+import assignment3.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -19,16 +23,16 @@ public class Aldg extends Graph {
 		printTestData();
 	}
 
-	protected void putEdge(int i, int j) {
+	public void putEdge(int i, int j) {
 		adjacencyList[j].add(new Edge(i, j));
 	}
 
-	protected void putEdge(Edge e) {
+	public void putEdge(Edge e) {
 		putEdge(e.vertex1, e.vertex2);
 	}
 
 
-	protected void removeEdge(int i, int j) {
+	public void removeEdge(int i, int j) {
 		int count = 0;
 		for(Edge e : adjacencyList[i]) {
 			if (e.vertex1 == j) {
@@ -38,11 +42,11 @@ public class Aldg extends Graph {
 		}
 	}
 
-	protected void removeEdge(Edge e) {
+	public void removeEdge(Edge e) {
 		removeEdge(e.vertex1, e.vertex2);
 	}
 
-	protected boolean existsEdge(int i, int j) {
+	public boolean existsEdge(int i, int j) {
 		for(Edge e: adjacencyList[i]) {
 			if (e.vertex1 == j) {
 				return true;
@@ -56,7 +60,7 @@ public class Aldg extends Graph {
 		return false;
 	}
 
-	protected Node[] adjacentVertices(int i) {
+	public Node[] adjacentVertices(int i) {
 		Node[] nodeArray = new Node[0];
 		for (Edge e: adjacencyList[i]) {
 			nodeArray = addElement(nodeArray, new Node(e.vertex2));
@@ -64,7 +68,7 @@ public class Aldg extends Graph {
 		return nodeArray;
 	}
 
-	protected int inDegree(int i) {
+	public int inDegree(int i) {
 		int count = 0;
 		for (int j = 0; j < adjacencyList.length; j++) {
 			Iterator<Edge> it = adjacencyList[j].iterator();
@@ -77,18 +81,18 @@ public class Aldg extends Graph {
 		return count;
 	}
 
-	protected int outDegree(int i) {
+	public int outDegree(int i) {
 		return adjacencyList[i].size();
 	}
 
-	protected boolean areAdjacent(int i, int j) {
+	public boolean areAdjacent(int i, int j) {
 		if(existsEdge(i, j)) {
 			return true;
 		}
 		return false;
 	}
 
-	protected int[] inDegreeArray() {
+	public int[] inDegreeArray() {
 		int [] array = new int[numNodes + 1];
 		for (int i = 0; i < numNodes + 1; i++) {
 			array[i] = inDegree(i);
@@ -96,7 +100,7 @@ public class Aldg extends Graph {
 		return array;
 	}
 
-	protected void printTestData() {
+	public void printTestData() {
 
 		//Print statements
 		System.out.println("The Adjacency List Directed Graph is: ");

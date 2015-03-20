@@ -1,3 +1,7 @@
+package model;
+
+import assignment2.*;
+import assignment3.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
@@ -22,19 +26,19 @@ public class Alwdg extends Graph{
 		printTestData();
 	}
 
-	protected void putEdge(int i, int j, int w) {
+	public void putEdge(int i, int j, int w) {
 		adjacencyList[i].add(new Edge(i, j, w));
 	}
 	
-	protected void putEdge(Edge e) {
+	public void putEdge(Edge e) {
 		putEdge(e.vertex1, e.vertex2, e.weight);
 	}
 
-	protected void putEdge(int i, int j) {
+	public void putEdge(int i, int j) {
 		System.out.println("Please enter a weight");
 	}
 
-	protected void removeEdge(int i, int j) {
+	public void removeEdge(int i, int j) {
 		int count = 0;
 		for(Edge e : adjacencyList[i]) {
 			if (e.vertex1 == j) {
@@ -44,11 +48,11 @@ public class Alwdg extends Graph{
 		}
 	}
 	
-	protected void removeEdge(Edge e) {
+	public void removeEdge(Edge e) {
 		removeEdge(e.vertex1, e.vertex2);
 	}
 
-	protected boolean existsEdge(int i, int j) {
+	public boolean existsEdge(int i, int j) {
 		for(Edge e: adjacencyList[i]) {
 			if (e.vertex2 == j) {
 				return true;
@@ -57,7 +61,7 @@ public class Alwdg extends Graph{
 		return false;
 	}
 
-	protected Node[] adjacentVertices(int i) {
+	public Node[] adjacentVertices(int i) {
 		Node[] nodeArray = new Node[0];
 		for (Edge e: adjacencyList[i]) {
 			nodeArray = addElement(nodeArray, new Node(e.vertex2));
@@ -65,7 +69,7 @@ public class Alwdg extends Graph{
 		return nodeArray;
 	}
 
-	protected int inDegree(int i) {
+	public int inDegree(int i) {
 		int count = 0;
 		for (int j = 0; j < adjacencyList.length; j++) {
 			Iterator<Edge> it = adjacencyList[j].iterator();
@@ -78,18 +82,18 @@ public class Alwdg extends Graph{
 		return count;
 	}
 
-	protected int outDegree(int i) {
+	public int outDegree(int i) {
 		return adjacencyList[i].size();
 	}
 
-	protected boolean areAdjacent(int i, int j) {
+	public boolean areAdjacent(int i, int j) {
 		if(existsEdge(i, j)) {
 			return true;
 		}
 		return false;
 	}
 
-	protected int[] inDegreeArray() {
+	public int[] inDegreeArray() {
 		int [] array = new int[numNodes + 1];
 		for (int i = 0; i < numNodes + 1; i++) {
 			array[i] = inDegree(i);
@@ -97,7 +101,7 @@ public class Alwdg extends Graph{
 		return array;
 	}
 	
-	protected Queue<Edge> getPriorityQueue() {
+	public Queue<Edge> getPriorityQueue() {
 		PriorityQueue<Edge> edgePriorityQueue = new PriorityQueue<Edge>(numEdges, Edge.weightComparator);
 		for (int i = 0; i < edgeIntegerArray.length; i += 3) {
 			edgePriorityQueue.offer(new Edge(edgeIntegerArray[i], edgeIntegerArray[i + 1], edgeIntegerArray[i + 2]));
@@ -105,7 +109,7 @@ public class Alwdg extends Graph{
 		return edgePriorityQueue;
 	}
 
-	protected void printTestData() {
+	public void printTestData() {
 		
 		//Print statements
 		System.out.println("The Adjacency List Weighted Directed Graph is: ");

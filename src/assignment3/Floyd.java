@@ -1,3 +1,6 @@
+package assignment3;
+import model.*;
+
 public class Floyd {
 
 	public static int[][] transitiveClosure(Graph graph, int [][] theMatrix){
