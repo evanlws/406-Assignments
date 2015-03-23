@@ -15,6 +15,13 @@ public class Knapsack {
 				} else {
 					System.out.println(i + " " + j);
 					M[i][j] = M[i-1][j];
+			for(int i = 1; i < n ; i++){
+				for(int j = 0; j < W ; j++){
+					if((j - w[i]) >= 0) {
+						M[i][j] = Math.max( M[i-1][j] , (v[i] + M[i-1][j - w[i]] ));
+					} else {
+						M[i][j] = M[i-1][j];
+					}
 				}
 			}
 		}

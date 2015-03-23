@@ -4,7 +4,11 @@ public class Floyd {
 
 	public static int[][] transitiveClosure(int [][] matrix){
 		for(int n = 1; n < matrix.length + 1; n++){
+<<<<<<< Updated upstream
 			for(int m = 1; m < matrix.length + 1; m++){
+=======
+			for(int m = 1; m < matrix.length + 1; n++){
+>>>>>>> Stashed changes
 				if((n != m) && (matrix[n][m] == 0)){
 					matrix[n][m] = Integer.MAX_VALUE;
 				}
