@@ -6,7 +6,7 @@ public class MatrixMultiplication {
 
 	protected static String str = "";
 	
-	public MatrixMultiplication(int n, int [] di){
+	public static int[][] matrixMultiplicationProblem(int n, int [] di) {
 		int [][] N = new int[n][n];
 		
 		for(int i = 0; i < (n - 1); i++){
@@ -32,6 +32,8 @@ public class MatrixMultiplication {
 		printTheOrder(0,firstNumber);
 		printTheOrder(firstNumber + 1, N.length - 1);
 		System.out.println("Parentesis matrices: " + str);
+		
+		return N;
 	}
 	
 	/*protected static Comparator<int[][]> theComparator = new Comparator<int[][]>(){
