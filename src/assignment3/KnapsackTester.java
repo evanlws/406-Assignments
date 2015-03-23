@@ -7,7 +7,6 @@ package assignment3;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
@@ -24,7 +23,7 @@ public class KnapsackTester extends JPanel {
 	Scanner fileStream;
 	private JFileChooser chooseFile;
 
-	public KnapsackTester() throws FileNotFoundException{
+	public KnapsackTester() throws FileNotFoundException {
 		chooseFile = new JFileChooser();
 
 		if(chooseFile.showOpenDialog(KnapsackTester.this) == JFileChooser.APPROVE_OPTION){
