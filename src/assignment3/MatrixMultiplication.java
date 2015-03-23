@@ -1,25 +1,57 @@
-package assignment3;
+package Assign2Package;
+
+import java.util.*;
 
 public class MatrixMultiplication {
 
-	int n;
+	protected static String str = "";
+	protected static int [][] N;
 	
-	public MatrixMultiplication(int n){
-		this.n = n;
-		int j;
-		int [][] N = new int[n][n];
-		
+	public MatrixMultiplication(int n, int [] di){
+		N = new int[n][n];
+
 		for(int i = 0; i < (n - 1); i++){
 			N[i][i] = 0;
 		}
 		for(int b = 1; b < (n-1); b++){
 			for(int i = 0; i < (n-b-1); i++){
-				j = i + b;
+				int j = i + b;
+				Queue<int[][]> que = new PriorityQueue<int[][]>(theComparator);
 				for(int k = i; k < (j-1); k++){
-					// Unknown 
+					int number = N[i][k] + N[k + 1][j] + (di[i]*di[k + 1] * di[j + 1]);
+					int [][] kValues = new int [1][2];
+					kValues [0][0] = number;
+					kValues [0][1] = k;
+					que.add(kValues);
 				}
+				int [][] minimum = que.poll();
+				N[i][j] = minimum[0][0];
+				N[j][i] = minimum[0][1];
 			}
 		}
+		int firstNumber = N[N.length - 1][0];
+		printTheOrder(0,firstNumber);
+		printTheOrder(firstNumber + 1, N.length - 1);
+		System.out.println("Parentesis matrices: " + str);
+	}
+
+	protected static Comparator<int[][]> theComparator = new Comparator<int[][]>(){
+		public int compare(int[][] obj1, int [][] obj2){
+			return (int) (obj1[0][0] - obj2[0][0]);
+		}
+	};
+
+	protected static void printTheOrder(int n, int m){
+		if(n == m){
+			str += "A[" + n + "]";	
+		}
+		else{
+			str += " (";
+			printTheOrder(n, N[m][n]);
+			printTheOrder(N[m][n] + 1, m);
+			str += ") ";
+		}
+
 	}
 
 }
