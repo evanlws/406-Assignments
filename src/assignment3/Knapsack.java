@@ -20,7 +20,6 @@ public class Knapsack {
 		}
 		return M;
 		
-		
 	}
 
 }
