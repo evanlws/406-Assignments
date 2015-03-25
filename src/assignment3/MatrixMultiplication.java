@@ -5,10 +5,18 @@ public class MatrixMultiplication {
 	protected static String str = "";
 	protected static int [][] N;
 	protected static int [][] s;
-	
-	public static int[][] matrixMultiplicationProblem(int n, String di){
+
+	public static int[][] matrixMultiplicationProblem(int n, String diString){
 		N = new int[n][n];
 		s = new int[n][n];
+		int[] di;
+
+		//Parse the input data and create the edges and node array
+		String[] diStringArray = diString.split("[ ]+");
+		di = new int [diStringArray.length]; 
+		for (int i = 0; i < diStringArray.length; i++) {
+			di[i] = Integer.parseInt(diStringArray[i]);
+		}
 
 		for(int i = 0; i < (n - 1); i++){
 			N[i][i] = 0;
@@ -23,9 +31,9 @@ public class MatrixMultiplication {
 						N[i][j] = number;
 						s[i][j] = k;
 					}
-			
+
 				}
-				
+
 			}
 		}
 		return N;
