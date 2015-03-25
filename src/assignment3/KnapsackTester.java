@@ -45,7 +45,7 @@ public class KnapsackTester extends JPanel {
 			for (int i = 0; i < wArray.length; i++) {
 				w[i] = Integer.parseInt(wArray[i]);
 			}
-			printMatrix(Knapsack.knapsackProblem(v, w, n, W));
+			printMatrix(Knapsack.solution(v, w, n, W));
 		}
 	}
 

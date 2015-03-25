@@ -1,58 +1,47 @@
 package assignment3;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
 public class MatrixMultiplication {
 
 	protected static String str = "";
 	protected static int [][] N;
+	protected static int [][] s;
 	
-	public static int[][] matrixMultiplicationProblem(int n, int [] di) {
+	public static int[][] matrixMultiplicationProblem(int n, int [] di){
 		N = new int[n][n];
+		s = new int[n][n];
 
 		for(int i = 0; i < (n - 1); i++){
 			N[i][i] = 0;
 		}
-		for(int b = 1; b < (n-1); b++){
-			for(int i = 0; i < (n-b-1); i++){
+		for(int b = 1; b <= (n-1); b++){
+			for(int i = 0; i <= (n-b-1); i++){
 				int j = i + b;
-				PriorityQueue<int[][]> que = new PriorityQueue<int[][]>(1, theComparator);
-				for(int k = i; k < (j-1); k++){
+				N[i][j] = Integer.MAX_VALUE;
+				for(int k = i; k <= (j-1); k++){
 					int number = N[i][k] + N[k + 1][j] + (di[i]*di[k + 1] * di[j + 1]);
-					int [][] kValues = new int [1][2];
-					kValues [0][0] = number;
-					kValues [0][1] = k;
-					que.add(kValues);
+					if(number <= N[i][j]){
+						N[i][j] = number;
+						s[i][j] = k;
+					}
+			
 				}
-				int [][] minimum = que.poll();
-				N[i][j] = minimum[0][0];
-				N[j][i] = minimum[0][1];
+				
 			}
 		}
-		int firstNumber = N[N.length - 1][0];
-		printTheOrder(0,firstNumber);
-		printTheOrder(firstNumber + 1, N.length - 1);
-		System.out.println("Parentesis matrices: " + str);
 		return N;
 	}
 
-	protected static Comparator<int[][]> theComparator = new Comparator<int[][]>(){
-		public int compare(int[][] obj1, int [][] obj2){
-			return (int) (obj1[0][0] - obj2[0][0]);
-		}
-	};
-
-	protected static void printTheOrder(int n, int m){
-		if(n == m){
-			str += "A[" + n + "]";	
+	protected static String printOptimalParens(int i, int j){
+		if(i == j){
+			str += "A[" + i + "]";	
 		}
 		else{
 			str += " (";
-			printTheOrder(n, N[m][n]);
-			printTheOrder(N[m][n] + 1, m);
+			printOptimalParens(i, s[i][j]);
+			printOptimalParens(s[i][j] + 1, j);
 			str += ") ";
 		}
+		return str;
 
 	}
 

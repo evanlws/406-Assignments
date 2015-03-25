@@ -3,64 +3,50 @@ package assignment2;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Queue;
+import java.util.Set;
 
 import model.Edge;
 
 public class KruskalsMST {
 
-	static HashSet<Integer>[] setArray;
-	static HashSet<Edge> treeEdges;
-	
+	static Set<Integer>[] theSet;
+	static Set<Edge> tree;
 	@SuppressWarnings("unchecked")
-	public static HashSet<Edge> minimumSpanningTree(Queue<Edge> edgeQueue, int numNodes) {
-
-		//Initialize variables and create the set and tree
-		setArray = new HashSet[numNodes + 1];
-		//makeSet to fill the set with the vertices
-		makeSet(numNodes);
-		treeEdges = new HashSet<Edge>();
-		Edge minimumWeightEdge = null;
-		int numEdgesQueue = edgeQueue.size() - 1;
-		
-		//While T has fewer than (n-1) edges
-		while(treeEdges.size() < numEdgesQueue) {
-			//Remove minimum weight queue
-			minimumWeightEdge = edgeQueue.poll();
-			//If they aren't from the same subset
-			if(find(minimumWeightEdge.vertex1) != find(minimumWeightEdge.vertex2)) {
-				//Add to T
-				treeEdges.add(minimumWeightEdge);
-				//Union
-				union(minimumWeightEdge.vertex1, minimumWeightEdge.vertex2);
+	public static Set<Edge> minimumSpanningtree(Queue<Edge> edgeQueue, int numNodes){
+		theSet = new HashSet[numNodes + 1];
+		for(int i = 1; i < numNodes + 1; i++){
+			theSet[i] = new HashSet<Integer>();
+			theSet[i].add(i);
+		}
+		tree = new HashSet<Edge>();
+		Edge e = null;
+		int numEdge = edgeQueue.size() - 1;
+		while(tree.size() < numEdge){
+			e = edgeQueue.poll();
+			if(find(e.vertex1) != find(e.vertex2)){
+				tree.add(e);
+				union(e.vertex1, e.vertex2);
 			}
 		}
+		return tree;
 
-		return treeEdges;
 	}
 
-	//Make the sets
-	private static void makeSet(int j){
-		for (int i = 1; i < j + 1; i++){
-			setArray[i] = new HashSet<Integer>();
-			setArray[i].add(i);
-		}
-	}
-	//Find where the subsets
-	private static int find(int x){
-		for (int i = 1; i < setArray.length; i++) {
-			Iterator<Integer> it = setArray[i].iterator();
-			while(it.hasNext()) {
-				int value = it.next();
-				if (value == x) {
+	private static int find(int k){
+		for(int i = 1; i < theSet.length; i++){
+			Iterator<Integer> ite = theSet[i].iterator();
+			while(ite.hasNext()){
+				if(ite.next() == k){
 					return i;
 				}
-			}			
+			}
+
 		}
 		return 0;
 	}
-	
-	private static void union(int x, int y) {
-		setArray[y] = setArray[x];
+
+	private static void union(int i, int j){
+		theSet[j] = theSet[i];
 	}
 
 }

@@ -4,9 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.Set;
 
-import assignment2.KruskalsMST;
 import assignment2.TopologicalSort;
 
 public class Alwdg extends Graph{
@@ -126,14 +124,6 @@ public class Alwdg extends Graph{
 		int[] sortedArray = TopologicalSort.sortedArray(this, inDegreeArray());
 		for (int i = 0; i < sortedArray.length; i++) {
 			System.out.print(sortedArray[i] + " ");
-		}
-		System.out.println();
-		System.out.println("The MST is:");
-		Set<Edge> edges = KruskalsMST.minimumSpanningTree(getPriorityQueue(), numNodes);
-		Iterator<Edge> it = edges.iterator();
-		while(it.hasNext()) {
-			Edge e = it.next();
-			System.out.println(e.vertex1 + " " + e.vertex2 + " " + e.weight);
 		}
 	}
 

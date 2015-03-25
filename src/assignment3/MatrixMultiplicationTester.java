@@ -23,7 +23,7 @@ public class MatrixMultiplicationTester extends JPanel {
 			selectedFile = chooseFile.getSelectedFile();
 			fileStream = new Scanner(selectedFile);
 			n = Integer.parseInt(fileStream.nextLine());
-			di = new int[n];
+			di = new int[n + 1];
 			String[] diArray = fileStream.nextLine().split("[ ]+");
 			di = new int[diArray.length];
 
@@ -36,7 +36,7 @@ public class MatrixMultiplicationTester extends JPanel {
 
 	public static void main(String []args) throws Exception {
 		try {
-			new KnapsackTester();
+			new MatrixMultiplicationTester();
 		}
 		catch (Exception ex){
 			System.out.println(ex.getMessage());
