@@ -7,14 +7,8 @@ import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
-import model.Aldg;
-import model.Alwdg;
-import model.Alwg;
 import model.Amdg;
 import model.Amwdg;
-import model.Amwg;
-import model.GraphTester;
-import model.GraphType;
 
 public class WarshallFloydMatrixKnapsackTester extends JPanel {
 

@@ -3,7 +3,7 @@ package model;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import assignment3.Warshall;
+import assignment3.Floyd;
 
 public class Amwdg extends Graph {
 
@@ -111,7 +111,7 @@ public class Amwdg extends Graph {
 		}
 		
 		System.out.println("Floyd's transitive closure is: ");
-		int[][] transitiveClosure = Warshall.transitiveClosure(matrix);
+		int[][] transitiveClosure = Floyd.transitiveClosure(matrix);
 		for (int i = 0; i < transitiveClosure.length; i++) {
 			for (int j = 0; j < transitiveClosure.length; j++) {
 				System.out.print(transitiveClosure[i][j] + " ");

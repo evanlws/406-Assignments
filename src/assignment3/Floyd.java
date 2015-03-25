@@ -1,7 +1,5 @@
 package assignment3;
 
-import model.Graph;
-
 public class Floyd {
 
 	protected static int [][] matrix;
