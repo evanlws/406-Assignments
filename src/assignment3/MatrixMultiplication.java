@@ -6,7 +6,7 @@ public class MatrixMultiplication {
 	protected static int [][] N;
 	protected static int [][] s;
 
-	public static int[][] matrixMultiplicationProblem(int n, String diString){
+	public static void matrixMultiplicationProblem(int n, String diString){
 		N = new int[n][n];
 		s = new int[n][n];
 		int[] di;
@@ -36,7 +36,7 @@ public class MatrixMultiplication {
 
 			}
 		}
-		return N;
+		System.out.println(printOptimalParens(0, n - 1));
 	}
 
 	protected static String printOptimalParens(int i, int j){
