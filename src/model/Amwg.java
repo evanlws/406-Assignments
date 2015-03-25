@@ -116,8 +116,8 @@ public class Amwg extends Graph {
 		return edgePriorityQueue;
 	}
 	
-	public void printTestData() {
-
+	public int [][] printTestData() {
+		
 		//Print Statements
 		System.out.println("The Adjacency Matrix Weighted Graph is: ");
 		for (int i = 0; i < matrix.length; i++) {
@@ -128,13 +128,15 @@ public class Amwg extends Graph {
 		}
 		
 		System.out.println("The transitive closure is: ");
-		int[][] transitiveClosure = Warshall.transitiveClosure(this, matrix);
+		int[][] transitiveClosure = Warshall.transitiveClosure(matrix);
 		for (int i = 0; i < transitiveClosure.length; i++) {
 			for (int j = 0; j < transitiveClosure.length; j++) {
 				System.out.print(transitiveClosure[i][j] + " ");
 			}
 			System.out.println();
 		}
+		
+		return matrix;
 	}
 
 }

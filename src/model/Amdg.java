@@ -93,14 +93,14 @@ public class Amdg extends Graph{
 			}
 			System.out.println();
 		}
-		System.out.println("The transitive closure is: ");
-		int[][] transitiveClosure = Warshall.transitiveClosure(this, matrix);
+		System.out.println("Warshall's transitive closure is: ");
+		int[][] transitiveClosure = Warshall.transitiveClosure(matrix);
 		for (int i = 0; i < transitiveClosure.length; i++) {
 			for (int j = 0; j < transitiveClosure.length; j++) {
 				System.out.print(transitiveClosure[i][j] + " ");
 			}
 			System.out.println();
-		}
+		}	
 	}
 
 }

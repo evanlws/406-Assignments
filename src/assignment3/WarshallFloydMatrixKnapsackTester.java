@@ -21,6 +21,15 @@ public class WarshallFloydMatrixKnapsackTester extends JPanel {
 	private static final long serialVersionUID = 1L;
 	AlgorithmType algorithmType;
 	String algorithmStringType;
+	int numNodes;
+	int numEdges;
+	String edgesList;
+	int numMatrices;
+	String dataArray;
+	String valueArray;
+	String weightArray;
+	int numValues;
+	int knapsackWeight; 
 	
 	//File properties
 	private File selectedFile;
@@ -39,22 +48,31 @@ public class WarshallFloydMatrixKnapsackTester extends JPanel {
 					break;
 				}
 			}
-			numNodes = Integer.parseInt(fileStream.nextLine());
-			numEdges = Integer.parseInt(fileStream.nextLine());
-			edgesList = fileStream.nextLine();
 			
 			switch (algorithmType) {
 			case Warshall:
-				Warshall.transitiveClosure(graph, theMatrix);
+				numNodes = Integer.parseInt(fileStream.nextLine());
+				numEdges = Integer.parseInt(fileStream.nextLine());
+				edgesList = fileStream.nextLine();
+				new Amdg(numNodes, numEdges, edgesList);
 				break;
 			case Floyd:
-				Floyd.transitiveClosure(matrix);
+				numNodes = Integer.parseInt(fileStream.nextLine());
+				numEdges = Integer.parseInt(fileStream.nextLine());
+				edgesList = fileStream.nextLine();
+				new Amwdg(numNodes, numEdges, edgesList);
 				break;
 			case MatrixMultiplication:
-				MatrixMultiplication.matrixMultiplicationProblem(n, di);
+				numMatrices = Integer.parseInt(fileStream.nextLine());
+				dataArray = fileStream.nextLine();
+				MatrixMultiplication.matrixMultiplicationProblem(numMatrices, dataArray);
 				break;
 			case Knapsack:
-				Knapsack.solution(v, w, n, W);
+				valueArray = fileStream.nextLine();
+				weightArray = fileStream.nextLine();
+				numValues = Integer.parseInt(fileStream.nextLine());
+				knapsackWeight = Integer.parseInt(fileStream.nextLine());
+				Knapsack.solution(valueArray, weightArray, numValues, knapsackWeight);
 				break;
 			default:
 				break;

@@ -7,7 +7,7 @@ public class Floyd {
 	protected static int [][] matrix;
 	protected static int [][] preMatrix;
 	
-	public static int[][] transitiveClosure(Graph graph, int [][] theMatrix){
+	public static int[][] transitiveClosure(int [][] theMatrix){
 		matrix = theMatrix;
 		preMatrix = theMatrix;
 		for(int n = 1; n < matrix.length; n++){

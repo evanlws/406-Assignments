@@ -6,7 +6,7 @@ public class MatrixMultiplication {
 	protected static int [][] N;
 	protected static int [][] s;
 	
-	public static int[][] matrixMultiplicationProblem(int n, int [] di){
+	public static int[][] matrixMultiplicationProblem(int n, String di){
 		N = new int[n][n];
 		s = new int[n][n];
 

@@ -110,8 +110,8 @@ public class Amwdg extends Graph {
 			System.out.println("\n");
 		}
 		
-		System.out.println("The transitive closure is: ");
-		int[][] transitiveClosure = Warshall.transitiveClosure(this, matrix);
+		System.out.println("Floyd's transitive closure is: ");
+		int[][] transitiveClosure = Warshall.transitiveClosure(matrix);
 		for (int i = 0; i < transitiveClosure.length; i++) {
 			for (int j = 0; j < transitiveClosure.length; j++) {
 				System.out.print(transitiveClosure[i][j] + " ");
