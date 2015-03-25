@@ -8,7 +8,7 @@ public class Knapsack {
 	protected static int [][] sub;
 	protected static int []weights;
 
-	public static int[][] solution(String vString, String wString, int n, int W){
+	public static void solution(String vString, String wString, int n, int W){
 
 		//Parse the input data and create the edges and node array
 		String[] vStringArray = vString.split("[ ]+");
@@ -48,9 +48,7 @@ public class Knapsack {
 				}
 			}
 		}
-		return M;
-
-
+		printMatrix(M);
 	}
 
 	public static void subset(int [][]solutionMatrix, int []weights){
@@ -70,6 +68,16 @@ public class Knapsack {
 			System.out.print(optimal[m] + " , ");
 		}
 		System.out.println("} ");
+	}
+	
+	public static void printMatrix(int[][] matrix) {
+		System.out.println("The knapsack solution is: ");
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j <= matrix.length; j++) {
+				System.out.print(matrix[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 
 }
