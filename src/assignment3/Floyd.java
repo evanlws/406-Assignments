@@ -4,7 +4,7 @@ public class Floyd {
 
 	protected static int [][] matrix;
 	protected static int [][] preMatrix;
-	
+
 	public static int[][] transitiveClosure(int [][] theMatrix){
 		matrix = theMatrix;
 		preMatrix = theMatrix;
@@ -27,8 +27,7 @@ public class Floyd {
 				}
 			}
 		}
-		
-		
+
 		return matrix;
 	}
 	public static void printPath(int i, int j){

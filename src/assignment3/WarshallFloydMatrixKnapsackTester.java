@@ -24,12 +24,12 @@ public class WarshallFloydMatrixKnapsackTester extends JPanel {
 	String weightArray;
 	int numValues;
 	int knapsackWeight; 
-	
+
 	//File properties
 	private File selectedFile;
 	private Scanner fileStream;
 	private JFileChooser chooseFile;
-	
+
 	public WarshallFloydMatrixKnapsackTester() throws FileNotFoundException {
 		chooseFile = new JFileChooser();
 		if(chooseFile.showOpenDialog(WarshallFloydMatrixKnapsackTester.this) == JFileChooser.APPROVE_OPTION){
@@ -42,7 +42,7 @@ public class WarshallFloydMatrixKnapsackTester extends JPanel {
 					break;
 				}
 			}
-			
+
 			switch (algorithmType) {
 			case Warshall:
 				numNodes = Integer.parseInt(fileStream.nextLine());
@@ -83,6 +83,6 @@ public class WarshallFloydMatrixKnapsackTester extends JPanel {
 			throw ex;
 		}
 	}
-	
+
 
 }

@@ -22,11 +22,11 @@ public class Amwdg extends Graph {
 	public void putEdge(int i, int j, int w) {
 		matrix[i][j] = w;
 	}
-	
+
 	public void putEdge(int i, int j) {
 		System.out.println("Please enter a weight");
 	}
-	
+
 	public void putEdge(Edge e) {
 		putEdge(e.vertex1, e.vertex2, e.weight);
 	}
@@ -34,7 +34,7 @@ public class Amwdg extends Graph {
 	public void removeEdge(int i, int j) {
 		matrix[i][j] = 0;
 	}
-	
+
 	public void removeEdge(Edge e) {
 		removeEdge(e.vertex1, e.vertex2);
 	}
@@ -82,7 +82,7 @@ public class Amwdg extends Graph {
 		}
 		return count;
 	}
-	
+
 	public int[] inDegreeArray() {
 		int [] array = new int[numNodes + 1];
 		for (int i = 0; i < numNodes + 1; i++) {
@@ -90,7 +90,7 @@ public class Amwdg extends Graph {
 		}
 		return array;
 	}
-	
+
 	public Queue<Edge> getPriorityQueue() {
 		PriorityQueue<Edge> edgePriorityQueue = new PriorityQueue<Edge>(numEdges, Edge.weightComparator);
 		for (int i = 0; i < edgeIntegerArray.length; i += 3) {
@@ -98,7 +98,7 @@ public class Amwdg extends Graph {
 		}
 		return edgePriorityQueue;
 	}
-	
+
 	public void printTestData() {
 
 		//Print Statements
@@ -109,16 +109,20 @@ public class Amwdg extends Graph {
 			}
 			System.out.println("\n");
 		}
-		
+
 		System.out.println("Floyd's transitive closure is: ");
 		int[][] transitiveClosure = Floyd.transitiveClosure(matrix);
 		for (int i = 0; i < transitiveClosure.length; i++) {
 			for (int j = 0; j < transitiveClosure.length; j++) {
-				System.out.print(transitiveClosure[i][j] + " ");
+				if(transitiveClosure[i][j] == Integer.MAX_VALUE) {
+					System.out.print("\u221E ");
+				} else {
+					System.out.print(transitiveClosure[i][j] + " ");
+				}
 			}
 			System.out.println();
 		}
-		
+
 	}
 
 }

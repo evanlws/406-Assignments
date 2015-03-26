@@ -69,7 +69,7 @@ public class Knapsack {
 		}
 		System.out.println("} ");
 	}
-	
+
 	public static void printMatrix(int[][] matrix) {
 		System.out.println("The knapsack solution is: ");
 		for (int i = 0; i < matrix.length; i++) {

@@ -31,12 +31,10 @@ public class MatrixMultiplication {
 						N[i][j] = number;
 						s[i][j] = k;
 					}
-
 				}
-
 			}
 		}
-		System.out.println(printOptimalParens(0, n - 1));
+		System.out.println("The matrix multiplication result is: " + printOptimalParens(0, n - 1));
 	}
 
 	protected static String printOptimalParens(int i, int j){
