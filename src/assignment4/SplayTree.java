@@ -2,11 +2,9 @@ package assignment4;
 
 public class SplayTree {
 	private SplayNode root;
-	private int count;
 	
 	public SplayTree(){
 		root = null;
-		count = 0;
 	}
 	
 	public boolean isEmpty(){
@@ -36,8 +34,6 @@ public class SplayTree {
             p.left = z;
 
         Splay(z);
-        count++;
-        System.out.println(count);
 	}
 	
     public void makeLeftChildParent(SplayNode c, SplayNode p){
@@ -60,6 +56,7 @@ public class SplayTree {
         p.left = c.right;
         c.right = p;
     }
+    
     
     public void makeRightChildParent(SplayNode c, SplayNode p){
 
@@ -84,11 +81,15 @@ public class SplayTree {
     }
     
     private void Splay(SplayNode x){
+    	System.out.println("Before Splaying: ");
+    	preorder();
+    	System.out.println();
     	
         while (x.parent != null){
             SplayNode Parent = x.parent;
             SplayNode GrandParent = Parent.parent;
-
+            
+            //Zig
             if (GrandParent == null){
                 if (x == Parent.left)
                     makeLeftChildParent(x, Parent);
@@ -118,7 +119,11 @@ public class SplayTree {
                 }
             }
         }
+      
         root = x;
+        System.out.println("After Splay: ");
+        preorder();
+        System.out.println();
 
     }
     
@@ -165,7 +170,9 @@ public class SplayTree {
         node.left = null;
         node.right = null;
         node = null;
-        count--;
+        System.out.println("After deletion: ");
+        preorder();
+        System.out.println();
     }
     
     public boolean search(int value) {
@@ -173,29 +180,67 @@ public class SplayTree {
         return findNode(value) != null;
     }
 
-    private SplayNode findNode(int num){
+    protected SplayNode findNode(int num){
     	
         SplayNode z = root;
-
+        
         while (z != null){
-        	
             if (num > z.number)
                 z = z.right;
-
             else if (num < z.number)
                 z = z.left;
-
             else
                 return z;
-
         }
         return null;
 
     }
     
-    public void print(){
-    	System.out.println(root.number);
-    	//System.out.println(root.left.number);
-    	System.out.println(root.right.number);
+    public int rank(SplayNode node)
+    {
+        if (node == null) {
+            return 0;
+        }
+        else{
+            return (1 + Math.max(rank(node.left), rank(node.right)));
+        }
+    }
+    
+    public int size(SplayNode node) {
+
+        if(node == null)
+            return 0;
+        else 
+            if(node.left == null && node.right == null)
+                return 1;
+            else
+                return (1 + size(node.left) + size(node.right));    
+
+    }
+    public void inorder(){
+    	inorder(root);
+    }
+    
+    private void inorder(SplayNode n) {
+
+        if (n != null) {
+            inorder(n.left);
+            System.out.print(n.number +" ");
+            inorder(n.right);
+        }
+    }
+    
+    public void preorder(){
+    	preorder(root);
+    }
+
+    private void preorder(SplayNode n){
+
+        if (n != null){
+            System.out.print(n.number +" ");
+            preorder(n.left);             
+            preorder(n.right);
+        }
+
     }
 }

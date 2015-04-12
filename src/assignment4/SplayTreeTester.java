@@ -40,7 +40,17 @@ public class SplayTreeTester extends JPanel {
 			for(int j = 0; j < nodeArray.length; j++){
 				splay.insert(nodeArray[j]);
 			}
-			splay.print();
+			System.out.println();
+			SplayNode two = splay.findNode(2);
+			System.out.println("rank of two before inserting 6: " + splay.rank(two));
+			System.out.println("size of two before inserting 6: " + splay.size(two));
+			splay.insert(6);
+			two = splay.findNode(2);
+			System.out.println("rank of two after inserting 6: " + splay.rank(two));
+			System.out.println("size of two after inserting 6: " + splay.size(two));
+			System.out.println("Attempt deletion of 6: ");
+			splay.remove(6);
+			
 			
 			
 		}

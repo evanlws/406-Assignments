@@ -5,6 +5,8 @@ public class SplayNode {
 	SplayNode right;
 	SplayNode parent;
 	int number;
+	int rank;
+	int size;
 	
 	public SplayNode(){
 		this(0,null,null,null);
